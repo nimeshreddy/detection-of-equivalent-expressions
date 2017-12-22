@@ -1,0 +1,1 @@
+Detection of Equivalent Expressions was a project to the extension of Equivalent variables by Alpern, Wegman and Zadeck. The algorithm used here will be conservative. Not all equivalences will be detected, but those that are detected are equivalent.

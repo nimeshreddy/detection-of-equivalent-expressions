@@ -1,0 +1,19 @@
+#!/bin/bash
+# Hello pass build
+
+cd ~/llvm-3.9.0/build
+cmake ..
+if [ $? -ne 0 ]
+then
+	echo CMAKE FAILED
+	exit 1
+fi
+cd ~/llvm-3.9.0/build/lib/Transforms/Hello
+make
+if [ $? -ne 0 ]
+then
+	echo MAKE FAILED
+	exit 1
+fi
+cd ~/fproject
+opt -load ../llvm-3.9.0/build/lib/LLVMHello.so -hello < sample.bc > /dev/null
